@@ -45,14 +45,13 @@ public class code2 {
         }
         int k = 0, currentN = 0;
         Board winnerBoard = null;
-        while (boards.size() > 1) {
-            // System.out.println(" k " + k + " size " + boards.size());
+        while (boards.size() > 1) {  // picking the last winner ...
             GameManager.marker(boards, Integer.parseInt(numbers.get(k)));
             boards = GameManager.winnerSorter(boards);
             k++;
         }
         winnerBoard = boards.get(0);
-        while (flag) {
+        while (flag) { // after thats done now we need to get the last picked number for which this board will win...
             GameManager.marker(boards, Integer.parseInt(numbers.get(k)));
             currentN = Integer.parseInt(numbers.get(k));
             if (GameManager.boardChecker(winnerBoard))
@@ -67,6 +66,9 @@ public class code2 {
     }
 
 }
+
+
+
 
 class GameManager {
     public static List<Board> winnerSorter(List<Board> boards) {
